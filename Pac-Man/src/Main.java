@@ -87,6 +87,7 @@ public class Main
 		// Adding maze borders with a loop using Map class objects
 		for(int i = 100; i <= 1000; i++)
 		{
+			// Adding a new Map object to the ArrayList and setting to a certain width and height and location
 			borders.add(new Map("images/horizontalBorder.png",0,i,100,10));
 			i += 99;
 		}
