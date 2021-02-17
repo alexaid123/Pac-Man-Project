@@ -20,13 +20,12 @@ public class Main
 	public static JLabel pacman_up = new JLabel(new ImageIcon("images/pacman_up.gif")); 
 	public static JLabel pacman_down = new JLabel(new ImageIcon("images/pacman_down.gif")); 
 	public static boolean gameOver = false;
+	public static boolean win = false;
 	public static JLabel topBorder1 = new JLabel(new ImageIcon("images/horizontalBorder.png"));
 	public static JLabel bottomBorder1 = new JLabel(new ImageIcon("images/horizontalBorder.png")); 
 	public static JLabel sideBorder1 = new JLabel(new ImageIcon("images/verticalBorder.png")); 
 	public static JLabel sideBorder2 = new JLabel(new ImageIcon("images/verticalBorder.png")); 
-	public static JLabel exit1 = new JLabel(new ImageIcon("images/exits.png"));
-	public static JLabel exit2 = new JLabel(new ImageIcon("images/exits.odg"));
-	//public static JLabel p1, p2, p3, p4, p5 = new JLabel(new ImageIcon("images/pellet.png"));
+	public static JLabel cherry = new JLabel(new ImageIcon("images/cherry.png")); 
 	static ArrayList<Map> pellets = new ArrayList<Map>();
 
 	public static void main(String args[])
@@ -142,12 +141,12 @@ public class Main
 			borders.add(new Map("images/horizontalBorder.png",360,i,100,10));
 		}
 		
-		borders.add(new Map("images/horizontalBorder.png",150,0,10,600));
-		borders.add(new Map("images/horizontalBorder.png",150,700,10,650));
+		borders.add(new Map("images/horizontalBorder.png",150,100,10,500));
+		borders.add(new Map("images/horizontalBorder.png",150,700,10,200));
 		borders.add(new Map("images/horizontalBorder.png",300,0,10,308));
 		borders.add(new Map("images/horizontalBorder.png",300,400,10,360));
 		borders.add(new Map("images/horizontalBorder.png",300,850,10,350));
-		borders.add(new Map("images/horizontalBorder.png",450,0,10,610));
+		borders.add(new Map("images/horizontalBorder.png",450,100,10,510));
 		borders.add(new Map("images/horizontalBorder.png",450,700,10,650));
 		borders.add(new Map("images/horizontalBorder.png",600,0,10,308));
 		borders.add(new Map("images/horizontalBorder.png",600,400,10,360));
@@ -161,31 +160,23 @@ public class Main
 		panel.add(topBorder1);
 		topBorder1.setBounds(0,0,1000,10); 
 		
-		
 		panel.add(bottomBorder1);
 		bottomBorder1.setBounds(0,653,1000,10); 
-		
-		panel.add(exit1);
-		exit1.setBounds(350,250,100,500);
-		exit1.setVisible(true);
 		
 		panel.add(sideBorder1);
 		sideBorder1.setBounds(0,0,10,700); 
 		
-		
 		panel.add(sideBorder2);
 		sideBorder2.setBounds(990,0,10,700); 
 		
-		
-		
 		//Adds 4 PacMans facing different directions
-		pacman_right.setBounds(150, 90,400,365);
+		pacman_right.setBounds(150, 95,400,365);
 		panel.add(pacman_right); 	
 		panel.add(pacman_up); 
 		panel.add(pacman_left); 	
 		panel.add(pacman_down);
 		X = 330;  
-		Y = 250;
+		Y = 255;
 		
 		//Add pellets
 
@@ -196,6 +187,11 @@ public class Main
 				pellets.add(new Map("images/pellet.png", j * 30, i * 50, 4, 4));
 			}
 		}
+		
+		//Add cherry
+		panel.add(cherry);
+		cherry.setBounds(325,246,50,50); 
+		cherry.setVisible(false);
 		
 		//Add ghosts and their movements
 		Enemies enemy = new Enemies();
@@ -271,7 +267,7 @@ public class Main
 					{
 						Y = 10;
 					}
-					else if(((Y > 118 && Y - 5 <= 158) && !(X >= 610 && X <= 660 )) || ((Y > 268 && Y - 5 <= 308) && !((X >= 310 && X <= 360) || (X >= 760 && X <= 810))) || ((Y > 455 && Y - 5 <= 455) && !((X >= 610 && X <= 660))) || ((Y > 610 && Y - 5 <= 610) && !((X >= 310 && X <= 360) || (X >= 760 && X <= 810))))
+					else if(((Y > 118 && Y - 5 <= 158) && !((X >= 610 && X <= 660) || (X >= 0 && X <= 100) || (X >= 900 && X <= 1000))) || ((Y > 268 && Y - 5 <= 308) && !((X >= 310 && X <= 360) || (X >= 760 && X <= 810))) || ((Y > 455 && Y - 5 <= 455) && !((X >= 610 && X <= 660) || (X >= 0 || X <= 100))) || ((Y > 610 && Y - 5 <= 610) && !((X >= 310 && X <= 360) || (X >= 760 && X <= 810))))
 					{
 						Y -= 0;
 					}
@@ -292,7 +288,7 @@ public class Main
 					{
 						Y = 611;
 					}
-					else if(((Y < 110 && Y + 5 >= 110) && !(X >= 610 && X <= 660 )) || ((Y < 260 && Y + 5 >= 260) && !((X >= 310 && X <= 360) || (X >= 760 && X <= 810))) || ((Y < 560 && Y + 5 >= 560) && !((X >= 310 && X <= 360) || (X >= 760 && X <= 810))) || ((Y < 410 && Y + 5 >= 410) && !(X >= 610 && X <= 660)))
+					else if(((Y < 110 && Y + 5 >= 110) && !((X >= 610 && X <= 660) || (X >= 0 && X <= 100) || (X >= 900 && X <= 1000))) || ((Y < 260 && Y + 5 >= 260) && !((X >= 310 && X <= 360) || (X >= 760 && X <= 810))) || ((Y < 560 && Y + 5 >= 560) && !(((X >= 310 && X <= 360) || (X >= 760 && X <= 810)))) || ((Y < 410 && Y + 5 >= 410) && !((X >= 610 && X <= 660) || (X >= 0 && X <= 100))))
 					{
 						Y += 0;
 					}

@@ -48,13 +48,22 @@ public class Enemies extends Main
 		TimerTask tt = new TimerTask() {  
 		    @Override  
 		    public void run() {  
-		    	if((Math.abs(redX - X) <= 28 && Math.abs(redY - Y) <= 28) || (Math.abs(pinkX - X) <= 28 && Math.abs(pinkY - Y) <= 28) || (Math.abs(cyanX - X) <= 28 && Math.abs(cyanY - Y) <= 28) || (Math.abs(orangeX - X) <= 28 && Math.abs(orangeY - Y) <= 28))         
+		    	if((Math.abs(redX - X) <= 28 && Math.abs(redY - Y) <= 28) || (Math.abs(pinkX - X) <= 28 && Math.abs(pinkY - Y) <= 28) || (Math.abs(cyanX - X) <= 28 && Math.abs(cyanY - Y) <= 28) || (Math.abs(orangeX - X) <= 28 && Math.abs(orangeY - Y) <= 28) || win == true)
 				{
 					gameOver = true;
 					if(!shown)
 					{
-						JOptionPane.showMessageDialog(null, "GAME OVER!");
-				    	shown = true;
+						if(win == true)
+						{
+							JOptionPane.showMessageDialog(null, "YOU WIN!");
+					    	nameLabel.setText("You won!!");
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "GAME OVER!");
+					    	nameLabel.setText("Game Over");
+						}
+						shown = true;
 				    	PacManLabel.setVisible(false);
 				    	red.setVisible(false);
 				    	pink.setVisible(false);
@@ -69,10 +78,9 @@ public class Enemies extends Main
 				    		pellets.get(i).border.setVisible(false);
 				    	}
 				    	nameLabel.setVisible(true);
-				    	nameLabel.setText("Game Over");
 				    	nameLabel.setFont(new Font("", Font.PLAIN, 50)); 
 				    	nameLabel.setBounds(380,100,300,100);
-						score.setBounds(410, 400, 350, 100);
+						score.setBounds(400, 400, 350, 100);
 						score.setFont(new Font("", Font.BOLD, 40));
 				    	pacman_right.setVisible(false);
 						pacman_left.setVisible(false);
@@ -82,6 +90,7 @@ public class Enemies extends Main
 						bottomBorder1.setVisible(false);
 						sideBorder1.setVisible(false);
 						sideBorder2.setVisible(false);
+						cherry.setVisible(false);
 					}
 				}
 		    	else
@@ -89,15 +98,26 @@ public class Enemies extends Main
 		    		for(int i = 0; i < pellets.size(); i++)
 			    	{
 			    		if((Math.abs(pellets.get(i).getX() - X - 20) <= 20 && Math.abs(pellets.get(i).getY() - Y - 20) <= 20))
-			    			{
-			    				if(pellets.get(i).border.isVisible())
-			    				{
-			    					score1++;
-			    				}
+			    		{
+			    			if(pellets.get(i).border.isVisible())
+		    				{
+		    					score1++;
 			    				pellets.get(i).border.setVisible(false);
 						       	score.setText("Score = " + score1);
-			    			}
+						       	if(score1 == 50)
+						       	{
+						       		cherry.setVisible(true);
+						       	}
+		    				}
+			    		}
 			    	}
+		    		if(cherry.isVisible())
+		    		{
+		    			if((X > 285) && (X < 365) && (Y > 205) && (Y < 295))
+		    			{
+		    				win = true;
+		    			}
+		    		}
 			        redX = move(redX); 						if(redX >= 948){ redX = 948;} if(redX <= 10){ redX = 10;} 
 			        redY = move(redY); 						if(redY >= 611){ redY = 611;} if(redY <= 10){ redY = 10;} 
 					red.setBounds(redX, redY, 30, 42);
@@ -123,12 +143,21 @@ public class Enemies extends Main
 		    @Override  
 		    public void run() 
 		    {  
-		    	if((Math.abs(redX - X) <= 28 && Math.abs(redY - Y) <= 28) || (Math.abs(pinkX - X) <= 28 && Math.abs(pinkY - Y) <= 28) || (Math.abs(cyanX - X) <= 28 && Math.abs(cyanY - Y) <= 28) || (Math.abs(orangeX - X) <= 28 && Math.abs(orangeY - Y) <= 28))         
+		    	if((Math.abs(redX - X) <= 28 && Math.abs(redY - Y) <= 28) || (Math.abs(pinkX - X) <= 28 && Math.abs(pinkY - Y) <= 28) || (Math.abs(cyanX - X) <= 28 && Math.abs(cyanY - Y) <= 28) || (Math.abs(orangeX - X) <= 28 && Math.abs(orangeY - Y) <= 28) || win == true)
 				{
 					gameOver = true;
 					if(!shown)
 					{
-						JOptionPane.showMessageDialog(null, "GAME OVER!");
+						if(win == true)
+						{
+							JOptionPane.showMessageDialog(null, "YOU WIN!");
+					    	nameLabel.setText("You won!!");
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "GAME OVER!");
+					    	nameLabel.setText("Game Over");
+						}
 				    	shown = true;
 				    	PacManLabel.setVisible(false);
 				    	red.setVisible(false);
@@ -144,10 +173,9 @@ public class Enemies extends Main
 				    		pellets.get(i).border.setVisible(false);
 				    	}
 				    	nameLabel.setVisible(true);
-				    	nameLabel.setText("Game Over");
 				    	nameLabel.setFont(new Font("", Font.PLAIN, 50)); 
 				    	nameLabel.setBounds(380,100,300,100);
-						score.setBounds(410, 400, 350, 100);
+						score.setBounds(400, 400, 350, 100);
 						score.setFont(new Font("", Font.BOLD, 40));
 				    	pacman_right.setVisible(false);
 						pacman_left.setVisible(false);
@@ -157,6 +185,7 @@ public class Enemies extends Main
 						bottomBorder1.setVisible(false);
 						sideBorder1.setVisible(false);
 						sideBorder2.setVisible(false);
+						cherry.setVisible(false);
 					}
 				}
 		    	else
@@ -164,15 +193,26 @@ public class Enemies extends Main
 		    		for(int i = 0; i < pellets.size(); i++)
 			    	{
 			    		if((Math.abs(pellets.get(i).getX() - X - 20) <= 20 && Math.abs(pellets.get(i).getY() - Y - 20) <= 20))
+			    		{
+			    			if(pellets.get(i).border.isVisible())
 			    			{
-			    				if(pellets.get(i).border.isVisible())
-			    				{
-			    					score1++;
-			    				}
-			    				pellets.get(i).border.setVisible(false);
-						       	score.setText("Score = " + score1);
+			    				score1++;
+				    			pellets.get(i).border.setVisible(false);
+							    score.setText("Score = " + score1);
+							    if(score1 == 50)
+							    {
+							    	cherry.setVisible(true);
+							    }
 			    			}
+			    		}
 			    	}
+		    		if(cherry.isVisible())
+		    		{
+		    			if((X > 285) && (X < 365) && (Y > 205) && (Y < 295))
+		    			{
+		    				win = true;
+		    			}
+		    		}
 		    		redX = hardMoveX(redX); 			
 		    		redY = hardMoveY(redY); 
 		    		red.setBounds(redX, redY, 30, 42);
@@ -186,7 +226,7 @@ public class Enemies extends Main
 		    		orangeY = hardMoveY(orangeY);
 		    		orange.setBounds(orangeX, orangeY, 30, 42);
 		    	}
-		    };  
+		    };
 		}; 
 	    t.scheduleAtFixedRate( tt, 50, 100);
 	}

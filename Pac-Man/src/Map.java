@@ -8,7 +8,7 @@ public class Map extends Main {
 	JLabel border;
 	public Map(String path, int y1, int x1, int height, int width)
 	{
-		 border = new JLabel(new ImageIcon(path)); 
+		border = new JLabel(new ImageIcon(path)); 
 		panel.add(border);
 		border.setBounds(x1, y1, width, height);
 		border.setVisible(true);
