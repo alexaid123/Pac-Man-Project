@@ -10,22 +10,22 @@ public class Main
 	public static JPanel panel = new JPanel();
 	public static JLabel PacManLabel, nameLabel; 
 	public static JTextField nameText; 
-	public static JButton startButton = new JButton(new ImageIcon("images/start.png")); 
+	public static JButton startButton = new JButton(new ImageIcon("Pac-Man/images/start.png")); 
 	static ArrayList<Map> borders = new ArrayList<Map>();
 	public static int X, Y, mode = 0;
 	public static JButton easy = new JButton("There's no way you can lose this");
 	public static JButton hard = new JButton("There is no way you can win this");
-	public static JLabel pacman_right = new JLabel(new ImageIcon("images/pacman_right.gif")); 
-	public static JLabel pacman_left = new JLabel(new ImageIcon("images/pacman_left.gif")); 
-	public static JLabel pacman_up = new JLabel(new ImageIcon("images/pacman_up.gif")); 
-	public static JLabel pacman_down = new JLabel(new ImageIcon("images/pacman_down.gif")); 
+	public static JLabel pacman_right = new JLabel(new ImageIcon("Pac-Man/images/pacman_right.gif")); 
+	public static JLabel pacman_left = new JLabel(new ImageIcon("Pac-Man/images/pacman_left.gif")); 
+	public static JLabel pacman_up = new JLabel(new ImageIcon("Pac-Man/images/pacman_up.gif")); 
+	public static JLabel pacman_down = new JLabel(new ImageIcon("Pac-Man/images/pacman_down.gif")); 
 	public static boolean gameOver = false;
 	public static boolean win = false;
-	public static JLabel topBorder1 = new JLabel(new ImageIcon("images/horizontalBorder.png"));
-	public static JLabel bottomBorder1 = new JLabel(new ImageIcon("images/horizontalBorder.png")); 
-	public static JLabel sideBorder1 = new JLabel(new ImageIcon("images/verticalBorder.png")); 
-	public static JLabel sideBorder2 = new JLabel(new ImageIcon("images/verticalBorder.png")); 
-	public static JLabel cherry = new JLabel(new ImageIcon("images/cherry.png")); 
+	public static JLabel topBorder1 = new JLabel(new ImageIcon("Pac-Man/images/horizontalBorder.png"));
+	public static JLabel bottomBorder1 = new JLabel(new ImageIcon("Pac-Man/images/horizontalBorder.png")); 
+	public static JLabel sideBorder1 = new JLabel(new ImageIcon("Pac-Man/images/verticalBorder.png")); 
+	public static JLabel sideBorder2 = new JLabel(new ImageIcon("Pac-Man/images/verticalBorder.png")); 
+	public static JLabel cherry = new JLabel(new ImageIcon("Pac-Man/images/cherry.png")); 
 	static ArrayList<Map> pellets = new ArrayList<Map>();
 
 	public static void main(String args[])
@@ -128,29 +128,29 @@ public class Main
 		for(int i = 100; i <= 1000; i+=100)
 		{
 			// Adding a new Map object to the ArrayList and setting to a certain width and height and location
-			borders.add(new Map("images/horizontalBorder.png",0,i,100,10));
+			borders.add(new Map("Pac-Man/images/horizontalBorder.png",0,i,100,10));
 		}
 		for(int i = 100; i <= 1000; i+=100)
 		{
 			// Adding a new Map object to the ArrayList and setting to a certain width and height and location
-			borders.add(new Map("images/horizontalBorder.png",150,i,100,10));
+			borders.add(new Map("Pac-Man/images/horizontalBorder.png",150,i,100,10));
 		}
 		for(int i = 100; i <= 1000; i+=100)
 		{
 			// Adding a new Map object to the ArrayList and setting to a certain width and height and location
-			borders.add(new Map("images/horizontalBorder.png",360,i,100,10));
+			borders.add(new Map("Pac-Man/images/horizontalBorder.png",360,i,100,10));
 		}
 		
-		borders.add(new Map("images/horizontalBorder.png",150,100,10,500));
-		borders.add(new Map("images/horizontalBorder.png",150,700,10,200));
-		borders.add(new Map("images/horizontalBorder.png",300,0,10,308));
-		borders.add(new Map("images/horizontalBorder.png",300,400,10,360));
-		borders.add(new Map("images/horizontalBorder.png",300,850,10,350));
-		borders.add(new Map("images/horizontalBorder.png",450,100,10,510));
-		borders.add(new Map("images/horizontalBorder.png",450,700,10,650));
-		borders.add(new Map("images/horizontalBorder.png",600,0,10,308));
-		borders.add(new Map("images/horizontalBorder.png",600,400,10,360));
-		borders.add(new Map("images/horizontalBorder.png",600,850,10,350));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",150,100,10,500));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",150,700,10,200));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",300,0,10,308));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",300,400,10,360));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",300,850,10,350));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",450,100,10,510));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",450,700,10,650));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",600,0,10,308));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",600,400,10,360));
+		borders.add(new Map("Pac-Man/images/horizontalBorder.png",600,850,10,350));
 		
 		//Adding enemies in the board
 		
@@ -184,7 +184,7 @@ public class Main
 		{
 			for (int j = 1; j < 22; j++)
 			{
-				pellets.add(new Map("images/pellet.png", j * 30, i * 50, 4, 4));
+				pellets.add(new Map("Pac-Man/images/pellet.png", j * 30, i * 50, 4, 4));
 			}
 		}
 		

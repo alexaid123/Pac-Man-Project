@@ -17,22 +17,22 @@ public class Enemies extends Main
 	private static int score1 = 0;
 	public Enemies()
     {
-		red = new JLabel(new ImageIcon("images/red.gif"));
+		red = new JLabel(new ImageIcon("Pac-Man/images/red.gif"));
 		panel.add(red);
 		red.setBounds(redX, redY, 30, 42);
 		red.setVisible(true);
 		
-		pink = new JLabel(new ImageIcon("images/pink.gif"));
+		pink = new JLabel(new ImageIcon("Pac-Man/images/pink.gif"));
 		panel.add(pink);
 		pink.setBounds(pinkX, pinkY, 30, 42);
 		pink.setVisible(true);
 		
-		cyan = new JLabel(new ImageIcon("images/cyan.gif"));
+		cyan = new JLabel(new ImageIcon("Pac-Man/images/cyan.gif"));
 		panel.add(cyan);
 		cyan.setBounds(cyanX, cyanY, 30, 42);
 		cyan.setVisible(true);
 		
-		orange = new JLabel(new ImageIcon("images/orange.gif"));
+		orange = new JLabel(new ImageIcon("Pac-Man/images/orange.gif"));
 		panel.add(orange);
 		orange.setBounds(orangeX, orangeY, 30, 42);
 		orange.setVisible(true);	
